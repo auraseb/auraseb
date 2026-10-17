@@ -1,0 +1,25 @@
+name: ticker
+on:
+  schedule:
+    - cron: "41 */6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["ticker/build.py", "ticker/marks/**", ".github/workflows/ticker.yml"]
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 ticker/build.py
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TICKER_USER: ${{ github.repository_owner }}
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ticker/light.svg ticker/dark.svg
+          git diff --cached --quiet || git commit -m "ticker: refresh" && git push

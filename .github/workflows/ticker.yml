@@ -5,21 +5,13 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ["ticker/build.py", "ticker/marks/**", ".github/workflows/ticker.yml"]
+    paths: [".github/workflows/ticker.yml"]
 permissions:
   contents: write
 jobs:
-  build:
+  ticker:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - run: python3 ticker/build.py
-        env:
-          GH_TOKEN: ${{ github.token }}
-          TICKER_USER: ${{ github.repository_owner }}
-      - run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add ticker/light.svg ticker/dark.svg
-          git diff --cached --quiet || git commit -m "ticker: refresh" && git push
+      - uses: auraseb/brand-ticker@v1

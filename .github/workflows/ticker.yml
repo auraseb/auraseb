@@ -14,7 +14,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - uses: auraseb/brand-ticker@v1
+      - uses: sebxt/brand-ticker@v1
         with:
           layout: strip
           max_logos: 40

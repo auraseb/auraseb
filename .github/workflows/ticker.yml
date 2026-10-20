@@ -15,3 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: auraseb/brand-ticker@v1
+        with:
+          layout: strip
+          max_logos: 40
+          exclude_orgs: open-meteo,Boavizta,Green-Software-Foundation,electricitymaps,handlewithcarecollective,planetlabs

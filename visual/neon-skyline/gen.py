@@ -6,7 +6,7 @@ light up by the days that had contributions, and weeks with merged brand PRs
 carry a pulsing beacon with a searchlight. Writes light.svg and dark.svg.
 
 Python 3 stdlib only.
-  GH_TOKEN=... python3 gen.py [--user auraseb] [--out DIR]
+  GH_TOKEN=... python3 gen.py [--user sebxt] [--out DIR]
                               [--merges merges.json] [--calendar cal.json]
 --merges   JSON list of ISO dates (merge times) used for the roof beacons.
 --calendar a saved GraphQL response, to draw without calling the API.
@@ -523,7 +523,7 @@ def render(weeks, merges, theme):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--user', default='auraseb')
+    ap.add_argument('--user', default='sebxt')
     ap.add_argument('--out', default=os.path.dirname(os.path.abspath(__file__)))
     ap.add_argument('--merges', help='JSON list of ISO merge dates')
     ap.add_argument('--calendar', help='saved GraphQL response JSON')

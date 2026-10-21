@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Light-trail calendar: the last year of auraseb contributions drawn as
+"""Light-trail calendar: the last year of sebxt contributions drawn as
 long-exposure neon ribbons, one per weekday (Sun at top), one column per week.
 Ribbon width, glow and brightness follow each day's count; brand merge days
 get a star flare; a comet of light runs along the trails on a loop.
@@ -18,7 +18,7 @@ try:
 except ImportError:  # pragma: no cover
     ZoneInfo = None
 
-LOGIN = "auraseb"
+LOGIN = "sebxt"
 W, H = 840, 280
 X0, X1 = 30.0, 750.0   # first and last week column
 K = 13                 # fibres per ribbon

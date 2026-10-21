@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""ASCII avatar banner for github.com/auraseb.
+"""ASCII avatar banner for github.com/sebxt.
 
 Redraws the avatar (a figure mid leap inside a looping ribbon of light) as
 colour ASCII: the figure is sampled from avatar.png, the light ribbon is drawn
